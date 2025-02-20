@@ -1,0 +1,29 @@
+{
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-18",
+  "name": "Node.js Development",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "label": "Start Development Server",
+      "detail": "Run npm start script"
+    }
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18",
+      "override": true
+    },
+    "ghcr.io/devcontainers/features/vscode-features:1": {
+      "features": "eslint,prettier"
+    }
+  }
+}
