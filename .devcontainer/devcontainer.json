@@ -1,29 +1,21 @@
 {
-  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-18",
   "name": "Node.js Development",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
-      ]
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VERSION": "18"
     }
   },
-  "tasks": [
-    {
-      "type": "npm",
-      "script": "dev",
-      "label": "Start Development Server",
-      "detail": "Run npm start script"
-    }
+  "image": "node:18",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ritwickdey.liveserver"
   ],
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "18",
-      "override": true
-    },
-    "ghcr.io/devcontainers/features/vscode-features:1": {
-      "features": "eslint,prettier"
-    }
-  }
+  "forwardPorts": [3000],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
 }
