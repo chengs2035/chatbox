@@ -59,6 +59,8 @@ if (process.env.NODE_ENV === 'production') {
 
 const isDebug = process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true'
 
+isDebug=true
+
 if (isDebug) {
     require('electron-debug')()
 }
